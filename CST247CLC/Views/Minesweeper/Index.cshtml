@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CST247CLC.Models.ButtonModel>
+<style>
+    .game-button{
+        width: 85px;
+        border:none;
+    }
+    .game-button-image{
+        width:70px;
+    }
+    .button-zone{
+        display:flex;
+        flex-wrap:wrap;
+    }
+    .line-break{
+        flex-basis:100%;
+        height:0;
+    }
+    .button-label{
+        font-size:8px;
+        text-align:center;
+    }
+</style>
+
+@{ 
+    string[] imageNames = { "0.png", "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png","bomb.png","button.png","flag.png" };
+
+}
+
+<form>
+    <div class="button-zone">
+
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+
+            @if (i % Math.Sqrt(Model.Count()) == 0)
+            {
+                <div class="line-break"></div>
+            }
+    <button class="game-button" type="submit" value="@Model.ElementAt(i).id" name="buttonNumber" asp-controller="Minesweeper" asp-action="HandleButtonClick">
+
+        @if (Model.ElementAt(i).isVisited == 1 && Model.ElementAt(i).live != true)
+        {
+            <img class="game-button-image" src="~/img/@imageNames[Model.ElementAt(i).neighbors]" />
+        }
+        else if (Model.ElementAt(i).isVisited == 0)
+        {
+            <img class="game-button-image" src="~/img/@imageNames[10]" />
+        }
+        else if (Model.ElementAt(i).live == true)
+        {
+            <img class="game-button-image" src="~/img/@imageNames[9]" />
+        }
+
+    </button>
+
+        }
+
+    </div>
+</form>
