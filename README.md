@@ -42,10 +42,10 @@ Minesweeper game application with graphical interface with advanced features of 
  
  # Login Page 
 <p align="center">
-<image src=" DIagram/Minesweepr-LoginPage.png">
+<image src="DIagram/Minesweepr-LoginPage.png">
 </p>
   
   # Register Page 
 <p align="center">
-<image src=" DIagram/Minesweeper-RegisterPage.png">
+<image src="DIagram/Minesweeper-RegisterPage.png">
 </p>
